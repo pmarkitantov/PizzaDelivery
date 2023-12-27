@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4674992B3CC7970034EB19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C4674982B3CC7970034EB19 /* GoogleService-Info.plist */; };
+		8C46749C2B3CC8D70034EB19 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8C46749B2B3CC8D70034EB19 /* FirebaseAuth */; };
+		8C46749E2B3CC8D70034EB19 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C46749D2B3CC8D70034EB19 /* FirebaseFirestore */; };
+		8C4674A02B3CC8D70034EB19 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8C46749F2B3CC8D70034EB19 /* FirebaseFirestoreSwift */; };
 		8C82D2732B3CC12F007E59DC /* PizzaDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */; };
 		8C82D2752B3CC12F007E59DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82D2742B3CC12F007E59DC /* ContentView.swift */; };
 		8C82D2772B3CC131007E59DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C82D2762B3CC131007E59DC /* Assets.xcassets */; };
@@ -16,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C4674982B3CC7970034EB19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C82D26F2B3CC12F007E59DC /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDeliveryApp.swift; sourceTree = "<group>"; };
 		8C82D2742B3CC12F007E59DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,6 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C46749C2B3CC8D70034EB19 /* FirebaseAuth in Frameworks */,
+				8C46749E2B3CC8D70034EB19 /* FirebaseFirestore in Frameworks */,
+				8C4674A02B3CC8D70034EB19 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +68,7 @@
 				8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */,
 				8C82D2742B3CC12F007E59DC /* ContentView.swift */,
 				8C82D2762B3CC131007E59DC /* Assets.xcassets */,
+				8C4674982B3CC7970034EB19 /* GoogleService-Info.plist */,
 				8C82D2782B3CC131007E59DC /* Preview Content */,
 			);
 			path = PizzaDelivery;
@@ -105,6 +114,11 @@
 			dependencies = (
 			);
 			name = PizzaDelivery;
+			packageProductDependencies = (
+				8C46749B2B3CC8D70034EB19 /* FirebaseAuth */,
+				8C46749D2B3CC8D70034EB19 /* FirebaseFirestore */,
+				8C46749F2B3CC8D70034EB19 /* FirebaseFirestoreSwift */,
+			);
 			productName = PizzaDelivery;
 			productReference = 8C82D26F2B3CC12F007E59DC /* PizzaDelivery.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +147,9 @@
 				Base,
 			);
 			mainGroup = 8C82D2662B3CC12F007E59DC;
+			packageReferences = (
+				8C46749A2B3CC8D70034EB19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 8C82D2702B3CC12F007E59DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,6 +166,7 @@
 			files = (
 				8C82D27A2B3CC131007E59DC /* Preview Assets.xcassets in Resources */,
 				8C82D2772B3CC131007E59DC /* Assets.xcassets in Resources */,
+				8C4674992B3CC7970034EB19 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +388,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C46749A2B3CC8D70034EB19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C46749B2B3CC8D70034EB19 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C46749A2B3CC8D70034EB19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		8C46749D2B3CC8D70034EB19 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C46749A2B3CC8D70034EB19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		8C46749F2B3CC8D70034EB19 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C46749A2B3CC8D70034EB19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8C82D2672B3CC12F007E59DC /* Project object */;
 }
