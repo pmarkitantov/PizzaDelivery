@@ -31,6 +31,7 @@ struct RegisterOrLoginView: View {
                         .font(.body)
                         .fontWeight(.semibold)
                         .padding()
+                        .tint(.black)
                     Divider()
 
                     TextField("Enter your email", text: $userEmail)
@@ -46,6 +47,8 @@ struct RegisterOrLoginView: View {
                     Button("Continue") {
                         isLoginMode ? loginUser() : registerUser()
                     }
+                    .font(.title)
+                    .fontWeight(.semibold)
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .padding()
                     .foregroundColor(Color("textColor"))
@@ -56,7 +59,7 @@ struct RegisterOrLoginView: View {
             }
         }
         .navigationDestination(isPresented: $isSuccessful) {
-            ContentView()
+            MainView()
         }
     }
 

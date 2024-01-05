@@ -41,7 +41,7 @@ struct WelcomeView: View {
 }
 
 struct CustomNavigationButton: View {
-    var imageName: String
+    var imageName: String?
     var text: String
     var destination: AnyView
 
@@ -54,8 +54,10 @@ struct CustomNavigationButton: View {
                         .fontWeight(.semibold)
                 },
                 icon: {
-                    Image(systemName: imageName)
-                        .font(.title)
+                    if let image = imageName {
+                        Image(systemName: image)
+                            .font(.title)
+                    }
                 }
             )
             .frame(minWidth: 0, maxWidth: .infinity)
