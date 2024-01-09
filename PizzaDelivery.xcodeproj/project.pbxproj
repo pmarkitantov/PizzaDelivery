@@ -20,6 +20,8 @@
 		8C82D27A2B3CC131007E59DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C82D2792B3CC131007E59DC /* Preview Assets.xcassets */; };
 		8C82D2832B3CC24A007E59DC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82D2822B3CC24A007E59DC /* WelcomeView.swift */; };
 		8C82D2852B3CC2AC007E59DC /* RegisterOrLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82D2842B3CC2AC007E59DC /* RegisterOrLoginView.swift */; };
+		8CF5168B2B4DAD7F00AE7953 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5168A2B4DAD7F00AE7953 /* ContentView.swift */; };
+		8CF5168E2B4DAF4400AE7953 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		8C82D2792B3CC131007E59DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C82D2822B3CC24A007E59DC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		8C82D2842B3CC2AC007E59DC /* RegisterOrLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrLoginView.swift; sourceTree = "<group>"; };
+		8CF5168A2B4DAD7F00AE7953 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +81,12 @@
 		8C82D2712B3CC12F007E59DC /* PizzaDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				8CF5168C2B4DADE800AE7953 /* Components */,
+				8CF516892B4DAD5B00AE7953 /* Root */,
+				8CF516862B4DAD2000AE7953 /* App */,
 				8C4674A62B486DD20034EB19 /* Model */,
 				8C82D2812B3CC218007E59DC /* Authentication */,
 				8C82D2802B3CC20E007E59DC /* Views */,
-				8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */,
 				8C82D2762B3CC131007E59DC /* Assets.xcassets */,
 				8C4674982B3CC7970034EB19 /* GoogleService-Info.plist */,
 				8C82D2782B3CC131007E59DC /* Preview Content */,
@@ -99,9 +105,6 @@
 		8C82D2802B3CC20E007E59DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C82D2842B3CC2AC007E59DC /* RegisterOrLoginView.swift */,
-				8C82D2822B3CC24A007E59DC /* WelcomeView.swift */,
-				8C4674A92B486E140034EB19 /* PizzaView.swift */,
 				8C82D2742B3CC12F007E59DC /* MenuView.swift */,
 				8C4674AB2B4882CD0034EB19 /* MainView.swift */,
 			);
@@ -111,8 +114,51 @@
 		8C82D2812B3CC218007E59DC /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				8CF516882B4DAD4300AE7953 /* ViewModel */,
+				8CF516872B4DAD3C00AE7953 /* Views */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		8CF516862B4DAD2000AE7953 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8CF516872B4DAD3C00AE7953 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C82D2822B3CC24A007E59DC /* WelcomeView.swift */,
+				8C82D2842B3CC2AC007E59DC /* RegisterOrLoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8CF516882B4DAD4300AE7953 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8CF516892B4DAD5B00AE7953 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				8CF5168A2B4DAD7F00AE7953 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		8CF5168C2B4DADE800AE7953 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8C4674A92B486E140034EB19 /* PizzaView.swift */,
+				8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +242,8 @@
 			files = (
 				8C82D2752B3CC12F007E59DC /* MenuView.swift in Sources */,
 				8C4674AC2B4882CD0034EB19 /* MainView.swift in Sources */,
+				8CF5168E2B4DAF4400AE7953 /* CustomButton.swift in Sources */,
+				8CF5168B2B4DAD7F00AE7953 /* ContentView.swift in Sources */,
 				8C4674AA2B486E140034EB19 /* PizzaView.swift in Sources */,
 				8C82D2832B3CC24A007E59DC /* WelcomeView.swift in Sources */,
 				8C4674A82B486DDF0034EB19 /* PizzaModel.swift in Sources */,

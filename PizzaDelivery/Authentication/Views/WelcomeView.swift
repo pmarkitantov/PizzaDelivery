@@ -32,43 +32,15 @@ struct WelcomeView: View {
                                 .multilineTextAlignment(.center)
                                 .padding()
                             
-                            CustomNavigationButton(imageName: "square.and.arrow.up", text: "Login", destination: AnyView(RegisterOrLoginView(isLoginMode: true)))
-                            CustomNavigationButton(imageName: "square.and.pencil", text: "Register", destination: AnyView(RegisterOrLoginView(isLoginMode: false)))
+                            CustomButton(imageName: "square.and.arrow.up", text: "Login", destination: AnyView(RegisterOrLoginView(isLoginMode: true)))
+                            CustomButton(imageName: "square.and.pencil", text: "Register", destination: AnyView(RegisterOrLoginView(isLoginMode: false)))
                         }
                     }
                 }
     }
 }
 
-struct CustomNavigationButton: View {
-    var imageName: String?
-    var text: String
-    var destination: AnyView
 
-    var body: some View {
-        NavigationLink(destination: destination) {
-            Label(
-                title: {
-                    Text(text)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                },
-                icon: {
-                    if let image = imageName {
-                        Image(systemName: image)
-                            .font(.title)
-                    }
-                }
-            )
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding()
-            .foregroundColor(Color("textColor"))
-            .background(Color("heavyGreen"))
-            .cornerRadius(40)
-            .padding()
-        }
-    }
-}
 
 #Preview {
     WelcomeView()

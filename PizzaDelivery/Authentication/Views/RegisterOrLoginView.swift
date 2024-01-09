@@ -46,10 +46,12 @@ struct RegisterOrLoginView: View {
                         .padding()
                     Button("Continue") {
                         isLoginMode ? loginUser() : registerUser()
+                        if isSuccessful {
+                        }
                     }
                     .font(.title)
                     .fontWeight(.semibold)
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(maxWidth: .infinity)
                     .padding()
                     .foregroundColor(Color("textColor"))
                     .background(Color("heavyGreen"))
@@ -58,9 +60,9 @@ struct RegisterOrLoginView: View {
                 }
             }
         }
-        .navigationDestination(isPresented: $isSuccessful) {
-            MainView()
-        }
+//        .navigationDestination(isPresented: $isSuccessful) {
+//            MainView()
+//        }
     }
 
     func registerUser() {
