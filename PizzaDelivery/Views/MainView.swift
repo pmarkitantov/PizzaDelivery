@@ -20,16 +20,16 @@ struct MainView: View {
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
-    let cart = Cart()
+    
 
     var body: some View {
         TabView {
-            MenuView(cart: cart)
+            MenuView()
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
 
-            CartView(cart: cart)
+            CartView()
                 .tabItem {
                     Label("Cart", systemImage: "cart")
                 }

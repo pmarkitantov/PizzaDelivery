@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PizzaView: View {
     var pizza: Pizza
-    @ObservedObject var cart: Cart
     @State private var showAddedToCartMessage = false
 
     var body: some View {
@@ -29,7 +28,8 @@ struct PizzaView: View {
                     .font(.system(size: 25))
                 Spacer(minLength: 10)
                 Button {
-                    cart.pizzasInCart.append(pizza)
+                    CartManager.shared.pizzasInCart.append(pizza)
+                    print(CartManager.shared.pizzasInCart.count)
                     showAddedToCartMessage = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         showAddedToCartMessage = false
@@ -51,5 +51,5 @@ struct PizzaView: View {
 }
 
 #Preview {
-    PizzaView(pizza: Pizza(name: "Chicken BBQ", price: 12.99, imageName: "bbq"), cart: Cart())
+    PizzaView(pizza: Pizza(name: "Chicken BBQ", price: 12.99, imageName: "bbq"))
 }

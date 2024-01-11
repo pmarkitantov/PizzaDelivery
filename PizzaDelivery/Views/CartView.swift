@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     
-    @ObservedObject var cart: Cart
+    @ObservedObject var cart: CartManager = CartManager.shared
 
     var total: Double {
         cart.pizzasInCart.reduce(0) { $0 + $1.price }
@@ -49,5 +49,5 @@ struct CartView: View {
 }
 
 #Preview {
-    CartView(cart: Cart())
+    CartView()
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
-    @ObservedObject var cart: Cart
+    
     var M = [Pizza(name: "Chicken", price: 12.99, imageName: "bbq"),
              Pizza(name: "Cheese", price: 14.99, imageName: "bbq"),
              Pizza(name: "BBQ", price: 15.99, imageName: "bbq"),
@@ -19,7 +19,7 @@ struct MenuView: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
                 ForEach(M, id: \.self) { pizza in
-                    PizzaView(pizza: pizza, cart: cart)
+                    PizzaView(pizza: pizza)
                 }
             }
         }
@@ -30,5 +30,5 @@ struct MenuView: View {
 
 
 #Preview {
-    MenuView(cart: Cart())
+    MenuView()
 }
