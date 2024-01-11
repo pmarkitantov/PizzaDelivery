@@ -31,6 +31,9 @@ struct PizzaView: View {
                 Button {
                     cart.pizzasInCart.append(pizza)
                     showAddedToCartMessage = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        showAddedToCartMessage = false
+                    }
                 } label: {
                     Image(systemName: showAddedToCartMessage ? "checkmark.circle.fill" : "plus.circle.fill")
                         .foregroundColor(showAddedToCartMessage ? .green : .red)

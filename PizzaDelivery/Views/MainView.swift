@@ -20,7 +20,7 @@ struct MainView: View {
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
-    @ObservedObject var cart = Cart()
+    let cart = Cart()
 
     var body: some View {
         TabView {
