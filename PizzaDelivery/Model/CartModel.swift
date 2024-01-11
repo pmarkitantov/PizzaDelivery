@@ -7,19 +7,36 @@
 
 import Foundation
 
-class Cart: ObservableObject {
-    @Published var pizzasInCart: [Pizza] = []
-}
-
 class CartManager: ObservableObject {
-    static let shared = CartManager() // Создаем единственный экземпляр
-    
-    @Published var pizzasInCart: [Pizza] = [Pizza(name: "Chicken", price: 12.99, imageName: "bbq")]
-    
-    func addPizza(pizza : Pizza) {
-        pizzasInCart.append(pizza)
+    static let shared = CartManager()
+    @Published var pizzasInCart: [String: (pizza: Pizza, count: Int)] = [:]
+
+    func addPizza(_ pizza: Pizza) {
+        if let existing = pizzasInCart[pizza.name] {
+            pizzasInCart[pizza.name] = (pizza, existing.count + 1)
+        } else {
+            pizzasInCart[pizza.name] = (pizza, 1)
+        }
     }
 
-    private init() {} // Приватный инициализатор, чтобы предотвратить создание дополнительных экземпляров
-}
+    func removePizza(_ pizzaName: String) {
+        if let existing = pizzasInCart[pizzaName], existing.count > 1 {
+            pizzasInCart[pizzaName] = (existing.pizza, existing.count - 1)
+        } else {
+            pizzasInCart.removeValue(forKey: pizzaName)
+        }
+    }
 
+    init() {
+        // Добавление тестовых данных
+        let mockPizzas = [
+            Pizza(name: "Margherita", price: 10.99, imageName: "margherita"),
+            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni"),
+            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni")
+        ]
+
+        for pizza in mockPizzas {
+            addPizza(pizza)
+        }
+    }
+}

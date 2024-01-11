@@ -28,10 +28,10 @@ struct PizzaView: View {
                     .font(.system(size: 25))
                 Spacer(minLength: 10)
                 Button {
-                    CartManager.shared.pizzasInCart.append(pizza)
+                    CartManager.shared.addPizza(pizza)
                     print(CartManager.shared.pizzasInCart.count)
                     showAddedToCartMessage = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         showAddedToCartMessage = false
                     }
                 } label: {
@@ -44,7 +44,7 @@ struct PizzaView: View {
             }
             .padding()
         }
-        .frame(minWidth: 150, maxWidth: .infinity)
+        .frame(minWidth: 150)
         .background(Color("textColor"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
     }

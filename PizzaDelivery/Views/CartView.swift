@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct CartView: View {
-    
-    @ObservedObject var cart: CartManager = CartManager.shared
+    @ObservedObject var cart: CartManager = .shared
 
     var total: Double {
-        cart.pizzasInCart.reduce(0) { $0 + $1.price }
+        cart.pizzasInCart.values.reduce(0) { $0 + $1.pizza.price * Double($1.count) }
     }
 
     var body: some View {
@@ -22,30 +21,29 @@ struct CartView: View {
                     Text("Your cart is empty")
                 } else {
                     List {
-                        ForEach(cart.pizzasInCart) { pizza in
-                            HStack {
-                                Text(pizza.name)
-                                Spacer()
-                                Text("$\(pizza.price, specifier: "%.2f")")
-                                Button(action: {
-                                    self.removePizza(pizza)
-                                }) {
-                                    Image(systemName: "trash")
+                        ForEach(cart.pizzasInCart.keys.sorted(), id: \.self) { key in
+                            if let item = cart.pizzasInCart[key] {
+                                HStack {
+                                    Text(item.pizza.name)
+                                    Spacer()
+                                    Text("x\(item.count)")
+                                        .clipShape(Circle())
+                                    Text("$\(item.pizza.price * Double(item.count), specifier: "%.2f")")
+                                    Button(action: {
+                                        self.cart.removePizza(item.pizza.name)
+                                    }) {
+                                        Image(systemName: "trash")
+                                    }
                                 }
                             }
                         }
                     }
-                    
                 }
             }
             .navigationBarTitle("Cart")
             .navigationBarItems(trailing: Text("Total: $\(total, specifier: "%.2f")"))
         }
     }
-
-    func removePizza(_ pizza: Pizza) {
-            cart.pizzasInCart.removeAll { $0.id == pizza.id }
-        }
 }
 
 #Preview {

@@ -8,26 +8,31 @@
 import SwiftUI
 
 struct MenuView: View {
-    
-    var M = [Pizza(name: "Chicken", price: 12.99, imageName: "bbq"),
-             Pizza(name: "Cheese", price: 14.99, imageName: "bbq"),
-             Pizza(name: "BBQ", price: 15.99, imageName: "bbq"),
-             Pizza(name: "Phila", price: 15.99, imageName: "bbq"),
-             Pizza(name: "Hawaika", price: 15.99, imageName: "bbq")]
-
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
-                ForEach(M, id: \.self) { pizza in
-                    PizzaView(pizza: pizza)
+
+            VStack {
+                HStack {
+                    Text("Find you best pizza!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.primary)
+                        .padding()
+                    Spacer()
                 }
+
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
+                        ForEach(MockData.menu, id: \.self) { pizza in
+                            PizzaView(pizza: pizza)
+                        }
+                    }
+                }
+
+                .padding()
             }
-        }
-        .padding()
-        .background(Color("primaryOrange"))
+        
     }
 }
-
 
 #Preview {
     MenuView()

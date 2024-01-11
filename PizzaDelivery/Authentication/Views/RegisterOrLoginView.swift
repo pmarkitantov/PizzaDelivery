@@ -16,53 +16,52 @@ struct RegisterOrLoginView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color("primaryOrange")
-                    .ignoresSafeArea()
-                VStack {
-                    Image("mainLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300)
-                        .clipShape(Circle())
-                        .padding(.bottom, 100)
-                    Text(isLoginMode ? "Already have an account? Log in" : "Enter your email and password for register")
-                        .foregroundColor(Color("textColor"))
-                        .font(.body)
-                        .fontWeight(.semibold)
-                        .padding()
-                        .tint(.black)
-                    Divider()
-
-                    TextField("Enter your email", text: $userEmail)
-                        .padding()
-                        .background(Color("textColor"))
-                        .cornerRadius(40)
-                        .padding()
-                    SecureField("Enter your password", text: $userPassword)
-                        .padding()
-                        .background(Color("textColor"))
-                        .cornerRadius(40)
-                        .padding()
-                    Button("Continue") {
-                        isLoginMode ? loginUser() : registerUser()
-                        if isSuccessful {
-                        }
-                    }
-                    .font(.title)
+            VStack {
+                Image("mainLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300)
+                    .clipShape(Circle())
+                    .padding(.bottom, 100)
+                Text(isLoginMode ? "Already have an account? Log in" : "Enter your email and password for register")
+                    .foregroundColor(.primary)
+                    .font(.body)
                     .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity)
                     .padding()
-                    .foregroundColor(Color("textColor"))
-                    .background(Color("heavyGreen"))
-                    .cornerRadius(40)
-                    .padding()
+                    .tint(.black)
+                Divider()
+
+                VStack(spacing: 24) {
+                    InputView(text: $userEmail,
+                              title: "Email adress",
+                              placeholder: "name@example.com")
+                        .textInputAutocapitalization(.none)
+
+                    InputView(text: $userPassword,
+                              title: "Password",
+                              placeholder: "Enter your password",
+                              isSecureField: true)
                 }
+                .padding(.horizontal)
+                .padding(.top, 12)
+
+                Button("Continue") {
+                    isLoginMode ? loginUser() : registerUser()
+                    if isSuccessful {}
+                }
+                .font(.title)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.white)
+                .background(.green)
+                .cornerRadius(40)
+                .padding()
             }
         }
-//        .navigationDestination(isPresented: $isSuccessful) {
-//            MainView()
-//        }
+        .navigationDestination(isPresented: $isSuccessful) {
+            MainView()
+        }
     }
 
     func registerUser() {

@@ -14,6 +14,9 @@
 		8C4674A82B486DDF0034EB19 /* PizzaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4674A72B486DDF0034EB19 /* PizzaModel.swift */; };
 		8C4674AA2B486E140034EB19 /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4674A92B486E140034EB19 /* PizzaView.swift */; };
 		8C4674AC2B4882CD0034EB19 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4674AB2B4882CD0034EB19 /* MainView.swift */; };
+		8C55CCF12B506CA000677AF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C55CCF02B506CA000677AF6 /* MockData.swift */; };
+		8C55CCF32B506F3E00677AF6 /* PizzaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C55CCF22B506F3E00677AF6 /* PizzaDetailView.swift */; };
+		8C55CCF52B507E1600677AF6 /* ImputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C55CCF42B507E1600677AF6 /* ImputView.swift */; };
 		8C6C8B6E2B4FFFEB0042A33B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8B6D2B4FFFEB0042A33B /* CartView.swift */; };
 		8C6C8B702B5004100042A33B /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8B6F2B50040F0042A33B /* CartModel.swift */; };
 		8C82D2732B3CC12F007E59DC /* PizzaDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82D2722B3CC12F007E59DC /* PizzaDeliveryApp.swift */; };
@@ -31,6 +34,9 @@
 		8C4674A72B486DDF0034EB19 /* PizzaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaModel.swift; sourceTree = "<group>"; };
 		8C4674A92B486E140034EB19 /* PizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaView.swift; sourceTree = "<group>"; };
 		8C4674AB2B4882CD0034EB19 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8C55CCF02B506CA000677AF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		8C55CCF22B506F3E00677AF6 /* PizzaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailView.swift; sourceTree = "<group>"; };
+		8C55CCF42B507E1600677AF6 /* ImputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImputView.swift; sourceTree = "<group>"; };
 		8C6C8B6D2B4FFFEB0042A33B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		8C6C8B6F2B50040F0042A33B /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		8C82D26F2B3CC12F007E59DC /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8C55CCEF2B506C8000677AF6 /* Mock Data */ = {
+			isa = PBXGroup;
+			children = (
+				8C55CCF02B506CA000677AF6 /* MockData.swift */,
+			);
+			path = "Mock Data";
+			sourceTree = "<group>";
+		};
 		8C82D2662B3CC12F007E59DC = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +100,7 @@
 		8C82D2712B3CC12F007E59DC /* PizzaDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				8C55CCEF2B506C8000677AF6 /* Mock Data */,
 				8CF5168C2B4DADE800AE7953 /* Components */,
 				8CF516892B4DAD5B00AE7953 /* Root */,
 				8CF516862B4DAD2000AE7953 /* App */,
@@ -163,6 +178,8 @@
 			children = (
 				8C4674A92B486E140034EB19 /* PizzaView.swift */,
 				8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */,
+				8C55CCF22B506F3E00677AF6 /* PizzaDetailView.swift */,
+				8C55CCF42B507E1600677AF6 /* ImputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -247,8 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6C8B6E2B4FFFEB0042A33B /* CartView.swift in Sources */,
+				8C55CCF12B506CA000677AF6 /* MockData.swift in Sources */,
 				8C82D2752B3CC12F007E59DC /* MenuView.swift in Sources */,
 				8C4674AC2B4882CD0034EB19 /* MainView.swift in Sources */,
+				8C55CCF52B507E1600677AF6 /* ImputView.swift in Sources */,
 				8CF5168E2B4DAF4400AE7953 /* CustomButton.swift in Sources */,
 				8C6C8B702B5004100042A33B /* CartModel.swift in Sources */,
 				8CF5168B2B4DAD7F00AE7953 /* ContentView.swift in Sources */,
@@ -257,6 +276,7 @@
 				8C4674A82B486DDF0034EB19 /* PizzaModel.swift in Sources */,
 				8C82D2852B3CC2AC007E59DC /* RegisterOrLoginView.swift in Sources */,
 				8C82D2732B3CC12F007E59DC /* PizzaDeliveryApp.swift in Sources */,
+				8C55CCF32B506F3E00677AF6 /* PizzaDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
