@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Pizza: Identifiable {
+struct Pizza: Identifiable, Hashable {
     var id = UUID()
     var name: String
     var price: Double
-    var imageName: String
+    var imageName: String?
 }

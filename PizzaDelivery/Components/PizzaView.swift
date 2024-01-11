@@ -9,14 +9,18 @@ import SwiftUI
 
 struct PizzaView: View {
     var pizza: Pizza
+    @ObservedObject var cart: Cart
+    @State private var showAddedToCartMessage = false
 
     var body: some View {
-        VStack() {
-            Image(pizza.imageName)
-                .resizable()
-                .frame(width: 150, height: 150)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-                .padding()
+        VStack {
+            if let pizzaImage = pizza.imageName {
+                Image(pizzaImage)
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .padding()
+            }
             Text(pizza.name)
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.bold)
@@ -24,13 +28,15 @@ struct PizzaView: View {
                 Text(String(format: "%.2f", pizza.price))
                     .font(.system(size: 25))
                 Spacer(minLength: 10)
-                Button(action: {
-                    // Действие добавления пиццы
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundColor(.red)
+                Button {
+                    cart.pizzasInCart.append(pizza)
+                    showAddedToCartMessage = true
+                } label: {
+                    Image(systemName: showAddedToCartMessage ? "checkmark.circle.fill" : "plus.circle.fill")
+                        .foregroundColor(showAddedToCartMessage ? .green : .red)
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .animation(.easeInOut, value: showAddedToCartMessage)
                 }
             }
             .padding()
@@ -38,11 +44,9 @@ struct PizzaView: View {
         .frame(minWidth: 150, maxWidth: .infinity)
         .background(Color("textColor"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
-        
-        
     }
 }
 
 #Preview {
-    PizzaView(pizza: Pizza(name: "Chicken BBQ", price: 12.99, imageName: "bbq"))
+    PizzaView(pizza: Pizza(name: "Chicken BBQ", price: 12.99, imageName: "bbq"), cart: Cart())
 }

@@ -19,15 +19,17 @@ struct MainView: View {
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
+    
+    @ObservedObject var cart = Cart()
 
     var body: some View {
         TabView {
-            MenuView()
+            MenuView(cart: cart)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
 
-            Text("Корзина")
+            CartView(cart: cart)
                 .tabItem {
                     Label("Cart", systemImage: "cart")
                 }
