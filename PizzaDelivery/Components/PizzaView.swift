@@ -29,7 +29,6 @@ struct PizzaView: View {
                 Spacer(minLength: 10)
                 Button {
                     CartManager.shared.addPizza(pizza)
-                    print(CartManager.shared.pizzasInCart.count)
                     showAddedToCartMessage = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         showAddedToCartMessage = false

@@ -26,13 +26,15 @@ struct CartView: View {
                                 HStack {
                                     Text(item.pizza.name)
                                     Spacer()
+
                                     Text("x\(item.count)")
-                                        .clipShape(Circle())
+
                                     Text("$\(item.pizza.price * Double(item.count), specifier: "%.2f")")
                                     Button(action: {
-                                        self.cart.removePizza(item.pizza.name)
+                                        self.cart.removePizza(key)
                                     }) {
-                                        Image(systemName: "trash")
+                                        Image(systemName: "minus.circle")
+                                            .foregroundStyle(.red)
                                     }
                                 }
                             }

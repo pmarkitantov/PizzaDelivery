@@ -19,11 +19,12 @@ class CartManager: ObservableObject {
         }
     }
 
-    func removePizza(_ pizzaName: String) {
-        if let existing = pizzasInCart[pizzaName], existing.count > 1 {
-            pizzasInCart[pizzaName] = (existing.pizza, existing.count - 1)
+    func removePizza(_ key: String) {
+        if let existing = pizzasInCart[key], existing.count > 1 {
+            pizzasInCart[key] = (existing.pizza, existing.count - 1)
+
         } else {
-            pizzasInCart.removeValue(forKey: pizzaName)
+            pizzasInCart.removeValue(forKey: key)
         }
     }
 
