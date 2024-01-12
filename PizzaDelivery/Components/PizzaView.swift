@@ -17,7 +17,7 @@ struct PizzaView: View {
                 Image(pizzaImage)
                     .resizable()
                     .frame(width: 150, height: 150)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .clipShape(Circle())
                     .padding()
             }
             Text(pizza.name)

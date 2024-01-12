@@ -16,34 +16,27 @@ struct CartView: View {
 
     var body: some View {
         NavigationView {
-            Group {
+            VStack {
                 if cart.pizzasInCart.isEmpty {
                     Text("Your cart is empty")
                 } else {
-                    List {
+                    LazyVStack {
                         ForEach(cart.pizzasInCart.keys.sorted(), id: \.self) { key in
                             if let item = cart.pizzasInCart[key] {
                                 HStack {
-                                    Text(item.pizza.name)
-                                    Spacer()
-
-                                    Text("x\(item.count)")
-
-                                    Text("$\(item.pizza.price * Double(item.count), specifier: "%.2f")")
-                                    Button(action: {
-                                        self.cart.removePizza(key)
-                                    }) {
-                                        Image(systemName: "minus.circle")
-                                            .foregroundStyle(.red)
-                                    }
+                                    CartCellView(cartManager: cart, pizza: item.pizza, count: item.count)
                                 }
                             }
                         }
                     }
+
+                    Text("Total: $\(total, specifier: "%.2f")")
+                        .font(.title)
+                        .padding()
+                    Spacer()
                 }
             }
-            .navigationBarTitle("Cart")
-            .navigationBarItems(trailing: Text("Total: $\(total, specifier: "%.2f")"))
+            .navigationTitle("Cart")
         }
     }
 }
