@@ -34,9 +34,9 @@ class CartManager: ObservableObject {
      init() {
         // Добавление тестовых данных
         let mockPizzas = [
-            Pizza(name: "Margherita", price: 10.99, imageName: "margherita"),
-            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni"),
-            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni")
+            Pizza(name: "Margherita", price: 10.99, imageName: "margherita", description: "Тесто, сыр, соус"),
+            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni", description: "Тесто, сыр, соус"),
+            Pizza(name: "Pepperoni", price: 12.99, imageName: "pepperoni", description: "Тесто, сыр, соус")
         ]
     
         for pizza in mockPizzas {

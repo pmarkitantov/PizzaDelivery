@@ -54,9 +54,11 @@ struct CartCellView: View {
             }
         }
         .padding()
+        .background(Color("textColor"))
+        .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }
 
 #Preview {
-    CartCellView(cartManager: CartManager(), pizza: Pizza(name: "Cheese", price: 14.99, imageName: "cheese"), count: 2)
+    CartCellView(cartManager: CartManager(), pizza: Pizza(name: "Cheese", price: 14.99, imageName: "cheese", description: "Тесто, сыр, соус"), count: 2)
 }

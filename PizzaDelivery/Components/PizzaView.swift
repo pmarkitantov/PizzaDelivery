@@ -20,28 +20,37 @@ struct PizzaView: View {
                     .clipShape(Circle())
                     .padding()
             }
+            HStack {
+                Text("from")
+
+                Text("$" + String(format: "%.2f", pizza.price))
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+            }
             Text(pizza.name)
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.bold)
-            HStack {
-                Text(String(format: "%.2f", pizza.price))
-                    .font(.system(size: 25))
-                Spacer(minLength: 10)
-                Button {
-                    CartManager.shared.addPizza(pizza)
-                    showAddedToCartMessage = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        showAddedToCartMessage = false
+                .padding(.vertical, 5)
+            Text(pizza.description)
+                .font(.system(.subheadline, design: .rounded))
+                .foregroundStyle(.secondary)
+                .padding(.vertical, 5)
+
+            Button {
+                CartManager.shared.addPizza(pizza)
+
+            } label: {
+                Text("Add")
+                    .foregroundStyle(Color.primary)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.primary, lineWidth: 3)
                     }
-                } label: {
-                    Image(systemName: showAddedToCartMessage ? "checkmark.circle.fill" : "plus.circle.fill")
-                        .foregroundColor(showAddedToCartMessage ? .green : .red)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .animation(.easeInOut, value: showAddedToCartMessage)
-                }
+                    .padding()
             }
-            .padding()
         }
         .frame(minWidth: 150)
         .background(Color("textColor"))
@@ -50,5 +59,5 @@ struct PizzaView: View {
 }
 
 #Preview {
-    PizzaView(pizza: Pizza(name: "Chicken BBQ", price: 12.99, imageName: "bbq"))
+    PizzaView(pizza: Pizza(name: "Margherita", price: 12.99, imageName: "margherita", description: "Тесто, сыр, соус"))
 }
