@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct PizzaView: View {
-    var pizza: Pizza
+    var pizza: Piza
+    @State private var showingDetail = false
     @State private var showAddedToCartMessage = false
 
     var body: some View {
         VStack {
-            if let pizzaImage = pizza.imageName {
-                Image(pizzaImage)
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .clipShape(Circle())
-                    .padding()
-            }
+            Image(pizza.imageName)
+                .resizable()
+                .frame(width: 150, height: 150)
+                .clipShape(Circle())
+                .padding()
+
             HStack {
                 Text("from")
 
-                Text("$" + String(format: "%.2f", pizza.price))
+                Text("$" + String(format: "%.2f", pizza.priceMedium))
                     .font(.system(size: 20))
                     .fontWeight(.bold)
             }
@@ -33,11 +33,15 @@ struct PizzaView: View {
                 .padding(.vertical, 5)
             Text(pizza.description)
                 .font(.system(.subheadline, design: .rounded))
+                .lineLimit(5)
+                .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
-                .padding(.vertical, 5)
+                .padding()
+
+            Spacer()
 
             Button {
-                CartManager.shared.addPizza(pizza)
+                showingDetail.toggle()
 
             } label: {
                 Text("Add")
@@ -52,12 +56,15 @@ struct PizzaView: View {
                     .padding()
             }
         }
-        .frame(minWidth: 150)
+        
         .background(Color("textColor"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
+        .sheet(isPresented: $showingDetail) {
+            PizzaDetailView(pizza: pizza)
+        }
     }
 }
 
 #Preview {
-    PizzaView(pizza: Pizza(name: "Margherita", price: 12.99, imageName: "margherita", description: "Тесто, сыр, соус"))
+    PizzaView(pizza: Piza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
 }

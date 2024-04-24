@@ -5,17 +5,18 @@
 //  Created by Pavel Markitantov on 27/12/2023.
 //
 
-import SwiftUI
-import FirebaseCore
 import FirebaseAuth
+import FirebaseCore
+import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
+    {
+        FirebaseApp.configure()
 
-    return true
-  }
+        return true
+    }
 }
 
 @main
@@ -23,7 +24,11 @@ struct PizzaDeliveryApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if true {
+                MainView()
+            } else {
+                WelcomeView()
+            }
         }
     }
 }

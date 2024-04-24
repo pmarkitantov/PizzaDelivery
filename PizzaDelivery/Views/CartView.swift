@@ -15,28 +15,25 @@ struct CartView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack {
-                if cart.pizzasInCart.isEmpty {
-                    Text("Your cart is empty")
-                } else {
-                    LazyVStack {
-                        ForEach(cart.pizzasInCart.keys.sorted(), id: \.self) { key in
-                            if let item = cart.pizzasInCart[key] {
-                                HStack {
-                                    CartCellView(cartManager: cart, pizza: item.pizza, count: item.count)
-                                }
+        VStack {
+            if cart.pizzasInCart.isEmpty {
+                Text("Your cart is empty")
+            } else {
+                LazyVStack {
+                    ForEach(cart.pizzasInCart.keys.sorted(), id: \.self) { key in
+                        if let item = cart.pizzasInCart[key] {
+                            HStack {
+                                CartCellView(cartManager: cart, pizza: item.pizza, count: item.count)
                             }
                         }
                     }
-
-                    Text("Total: $\(total, specifier: "%.2f")")
-                        .font(.title)
-                        .padding()
-                    Spacer()
                 }
+
+                Text("Total: $\(total, specifier: "%.2f")")
+                    .font(.title)
+                    .padding()
+                Spacer()
             }
-            .navigationTitle("Cart")
         }
     }
 }

@@ -10,17 +10,22 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            MenuView()
-                .tabItem {
-                    Label("Menu", systemImage: "list.dash")
-                }
-                .toolbar(.visible, for: .tabBar)
-                .toolbarBackground(Color.yellow, for: .tabBar)
+            NavigationView {
+                MenuView()
+                    .navigationBarTitle("Find your best pizza!")
+            }
+            .tabItem {
+                Label("Menu", systemImage: "list.dash")
+            }
+            
 
-            CartView()
-                .tabItem {
-                    Label("Cart", systemImage: "cart")
-                }
+            NavigationView {
+                CartView()
+                    .navigationBarTitle("Cart")
+            }
+            .tabItem {
+                Label("Cart", systemImage: "cart")
+            }
         }
         .tint(.primary)
     }

@@ -9,28 +9,14 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-
-            VStack {
-                HStack {
-                    Text("Find you best pizza!")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.primary)
-                        .padding()
-                    Spacer()
+        ScrollView {
+            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 10) {
+                ForEach(MockData.menu, id: \.self) { pizza in
+                    PizzaView(pizza: pizza)
+                        .padding(.horizontal, 10)
                 }
-
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
-                        ForEach(MockData.menu, id: \.self) { pizza in
-                            PizzaView(pizza: pizza)
-                        }
-                    }
-                }
-
-                .padding()
             }
-        
+        }
     }
 }
 
