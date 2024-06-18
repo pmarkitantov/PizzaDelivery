@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PizzaDetailView: View {
-    var pizza: Piza
+    var pizza: Pizza
     @State private var size: PizzaSize = .medium
     @State private var count = 1
     @EnvironmentObject var cartViewModel: CartViewModel
@@ -135,6 +135,6 @@ struct PizzaDetailView: View {
 }
 
 #Preview {
-    PizzaDetailView(pizza: Piza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
+    PizzaDetailView(pizza: Pizza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
         .environmentObject(CartViewModel())
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PizzaView: View {
-    var pizza: Piza
+    var pizza: Pizza
     @State private var showingDetail = false
     @State private var showAddedToCartMessage = false
 
@@ -62,5 +62,5 @@ struct PizzaView: View {
 }
 
 #Preview {
-    PizzaView(pizza: Piza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
+    PizzaView(pizza: Pizza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
 }

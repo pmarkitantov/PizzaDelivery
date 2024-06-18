@@ -23,6 +23,7 @@
 		8CF5168E2B4DAF4400AE7953 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */; };
 		AC0B38292B69991800FFC85F /* PizzaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B38282B69991800FFC85F /* PizzaDetailView.swift */; };
 		AC0B382B2B69A44800FFC85F /* AdjusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B382A2B69A44800FFC85F /* AdjusterView.swift */; };
+		AC7BA29D2C223F5800674AD0 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BA29C2C223F5800674AD0 /* CartViewModel.swift */; };
 		ACE8D4082BD96E070074051E /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4674A92B486E140034EB19 /* PizzaView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AC0B38282B69991800FFC85F /* PizzaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailView.swift; sourceTree = "<group>"; };
 		AC0B382A2B69A44800FFC85F /* AdjusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjusterView.swift; sourceTree = "<group>"; };
+		AC7BA29C2C223F5800674AD0 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		8C82D2712B3CC12F007E59DC /* PizzaDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				AC7BA29B2C223F3F00674AD0 /* ViewModels */,
 				8C55CCEF2B506C8000677AF6 /* Mock Data */,
 				8CF5168C2B4DADE800AE7953 /* Components */,
 				8CF516862B4DAD2000AE7953 /* App */,
@@ -160,6 +163,14 @@
 				AC0B382A2B69A44800FFC85F /* AdjusterView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AC7BA29B2C223F3F00674AD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC7BA29C2C223F5800674AD0 /* CartViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				AC0B38292B69991800FFC85F /* PizzaDetailView.swift in Sources */,
 				8C55CCF12B506CA000677AF6 /* MockData.swift in Sources */,
 				8C55CCF72B514A5C00677AF6 /* CartCellView.swift in Sources */,
+				AC7BA29D2C223F5800674AD0 /* CartViewModel.swift in Sources */,
 				8C82D2752B3CC12F007E59DC /* MenuView.swift in Sources */,
 				8C4674AC2B4882CD0034EB19 /* MainView.swift in Sources */,
 				8C55CCF52B507E1600677AF6 /* ImputView.swift in Sources */,

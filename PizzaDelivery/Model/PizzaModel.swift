@@ -8,10 +8,18 @@
 import Foundation
 
 struct Pizza: Identifiable, Hashable {
-    var id = UUID()
+    var id: UUID = UUID()
     var name: String
-    var price: Double
-    var imageName: String?
+    var imageName: String
     var description: String
+    var priceMedium: Double
+    var priceLarge: Double
+}
+
+enum PizzaSize: String, CaseIterable, Identifiable {
+    case medium = "Medium"
+    case large = "Large"
+    
+    var id: String { self.rawValue }
 }
 
