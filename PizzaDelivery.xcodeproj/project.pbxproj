@@ -117,6 +117,7 @@
 		8C82D2802B3CC20E007E59DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC0B38282B69991800FFC85F /* PizzaDetailView.swift */,
 				8C4674A92B486E140034EB19 /* PizzaView.swift */,
 				8C6C8B6D2B4FFFEB0042A33B /* CartView.swift */,
 				8C82D2742B3CC12F007E59DC /* MenuView.swift */,
@@ -153,7 +154,6 @@
 		8CF5168C2B4DADE800AE7953 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AC0B38282B69991800FFC85F /* PizzaDetailView.swift */,
 				8CF5168D2B4DAF4400AE7953 /* CustomButton.swift */,
 				8C55CCF42B507E1600677AF6 /* ImputView.swift */,
 				8C55CCF62B514A5C00677AF6 /* CartCellView.swift */,

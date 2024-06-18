@@ -8,45 +8,43 @@
 import SwiftUI
 
 struct CartCellView: View {
-    @ObservedObject var cartManager: CartManager
-    var pizza: Pizza
-    var count: Int
+    @ObservedObject var cartViewModel: CartViewModel
+    var cartItem: CartItem
+
     var totalPrice: Double {
-        return Double(count) * pizza.price
+        return Double(cartItem.quantity) * cartItem.price
     }
 
     var body: some View {
         HStack {
-            if let pizzaImage = pizza.imageName {
-                Image(pizzaImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 70)
-                    .clipShape(Circle())
-            }
+            Image(cartItem.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 70)
+                .clipShape(Circle())
 
             VStack(alignment: .leading) {
-                Text(pizza.name)
+                Text(cartItem.name)
                     .font(.headline)
-                Text("Price: $\(pizza.price, specifier: "%.2f")")
+                Text("Price: $\(totalPrice, specifier: "%.2f")")
                     .font(.subheadline)
             }
 
             Spacer()
 
             Button {
-                cartManager.addPizza(pizza)
+                cartViewModel.incrementItem(cartItem.name, size: cartItem.size)
             } label: {
                 Image(systemName: "plus.circle")
                     .foregroundStyle(.green)
                     .font(.title3)
             }
 
-            Text("\(count)")
+            Text("\(cartItem.quantity)")
                 .font(.title3)
-            
+
             Button {
-                cartManager.removePizza(pizza.name)
+                cartViewModel.removePizza(cartItem.name, size: cartItem.size)
             } label: {
                 Image(systemName: "minus.circle")
                     .foregroundStyle(.red)
@@ -60,5 +58,5 @@ struct CartCellView: View {
 }
 
 #Preview {
-    CartCellView(cartManager: CartManager(), pizza: Pizza(name: "Cheese", price: 14.99, imageName: "cheese", description: "Тесто, сыр, соус"), count: 2)
+    CartCellView(cartViewModel: CartViewModel(), cartItem: CartItem(name: "Cheese", size: .medium, price: 14.99, quantity: 2, imageName: "cheese"))
 }

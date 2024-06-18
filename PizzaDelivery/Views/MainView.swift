@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @EnvironmentObject var cartViewModel: CartViewModel
+    
     var body: some View {
         TabView {
             NavigationView {
@@ -17,10 +20,9 @@ struct MainView: View {
             .tabItem {
                 Label("Menu", systemImage: "list.dash")
             }
-            
 
             NavigationView {
-                CartView()
+                CartView(cartViewModel: cartViewModel)
                     .navigationBarTitle("Cart")
             }
             .tabItem {
@@ -33,4 +35,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(CartViewModel())
 }
