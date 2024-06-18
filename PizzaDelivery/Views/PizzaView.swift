@@ -31,24 +31,20 @@ struct PizzaView: View {
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.bold)
                 .padding(.vertical, 5)
-            Text(pizza.description)
+            Text("Tap to view ingredients")
                 .font(.system(.subheadline, design: .rounded))
                 .lineLimit(5)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
-                .padding()
-
-            Spacer()
 
             Button {
                 showingDetail.toggle()
 
             } label: {
-                Text("Add")
+                Image(systemName: "plus")
                     .foregroundStyle(Color.primary)
                     .fontWeight(.semibold)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.primary, lineWidth: 3)
@@ -56,7 +52,7 @@ struct PizzaView: View {
                     .padding()
             }
         }
-        
+
         .background(Color("textColor"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .sheet(isPresented: $showingDetail) {
