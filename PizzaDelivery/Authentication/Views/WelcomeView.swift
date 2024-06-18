@@ -29,8 +29,8 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding()
 
-                CustomButton(imageName: "square.and.arrow.up", text: "Login", destination: AnyView(RegisterOrLoginView(isLoginMode: true)))
-                CustomButton(imageName: "square.and.pencil", text: "Register", destination: AnyView(RegisterOrLoginView(isLoginMode: false)))
+//                CustomButton(imageName: "square.and.arrow.up", text: "Login", destination: AnyView(RegisterOrLoginView(isLoginMode: true)))
+//                CustomButton(imageName: "square.and.pencil", text: "Register", destination: AnyView(RegisterOrLoginView(isLoginMode: false)))
             }
         }
     }
