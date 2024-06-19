@@ -10,17 +10,10 @@ import Foundation
 import SwiftUI
 
 struct MenuSection: Codable, Identifiable, Hashable {
-    var id: UUID = UUID()
+    var id: UUID
     let title: String
     let imageName: String
     let products: [Product]
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case imageName
-        case products
-    }
 
     init(id: UUID = UUID(), title: String, imageName: String, products: [Product]) {
         self.id = id
@@ -28,10 +21,24 @@ struct MenuSection: Codable, Identifiable, Hashable {
         self.imageName = imageName
         self.products = products
     }
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case imageName
+        case products
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = UUID()
+        self.title = try container.decode(String.self, forKey: .title)
+        self.imageName = try container.decode(String.self, forKey: .imageName)
+        self.products = try container.decode([Product].self, forKey: .products)
+    }
 }
 
 struct Product: Identifiable, Codable, Hashable {
-    var id: UUID = UUID()
+    var id: UUID
     var name: String
     var imageName: String
     var description: String
@@ -48,20 +55,27 @@ struct Product: Identifiable, Codable, Hashable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id
         case name
         case imageName
         case description
         case priceMedium
         case priceLarge
     }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = UUID()
+        self.name = try container.decode(String.self, forKey: .name)
+        self.imageName = try container.decode(String.self, forKey: .imageName)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.priceMedium = try container.decode(Double.self, forKey: .priceMedium)
+        self.priceLarge = try container.decode(Double.self, forKey: .priceLarge)
+    }
 }
 
 enum PizzaSize: String, CaseIterable, Identifiable {
     case medium = "Medium"
     case large = "Large"
-    
+
     var id: String { self.rawValue }
 }
-
-
