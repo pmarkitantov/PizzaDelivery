@@ -52,7 +52,7 @@ struct CartCellView: View {
             }
         }
         .padding()
-        .background(Color("textColor"))
+        .background(Color("subviewBackground"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }

@@ -18,7 +18,7 @@ struct PizzaDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("textColor")
+                Color("subviewBackground")
                     .ignoresSafeArea()
                 VStack {
                     pizzaImage
