@@ -36,7 +36,7 @@ class CartViewModel: ObservableObject {
     }
     
     init() {
-        // Adding mock data for testing
+        
         let mockPizzas = [
             Product(name: "Маргарита", imageName: "margherita", description: "Тесто, сыр, соус", priceMedium: 10.99, priceLarge: 12.99)
         ]

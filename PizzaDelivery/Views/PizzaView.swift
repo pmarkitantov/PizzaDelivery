@@ -15,14 +15,19 @@ struct PizzaView: View {
     var body: some View {
         VStack {
             PizzaImageView(imageName: pizza.imageName)
-            PriceView(price: pizza.priceMedium)
             PizzaNameView(name: pizza.name)
             PizzaDescriptionView(description: pizza.description)
-            NavigationLinkButton(destination: PizzaDetailView(pizza: pizza))
+            HStack(alignment: .center) {
+                PriceView(price: pizza.priceMedium)
+                Spacer()
+                NavigationLinkButton(destination: PizzaDetailView(pizza: pizza))
+            }
+            .padding()
         }
-        .frame(width: 170)
+        .frame(width: 160)
         .background(Color("subviewBackground"))
         .clipShape(RoundedRectangle(cornerRadius: 25))
+        .shadow(radius: 5)
     }
 }
 
@@ -42,7 +47,7 @@ struct PriceView: View {
     let price: Double
 
     var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             Text("from")
             Text("$" + String(format: "%.2f", price))
                 .font(.system(size: 16))
@@ -72,6 +77,7 @@ struct PizzaDescriptionView: View {
             .multilineTextAlignment(.center)
             .foregroundStyle(.secondary)
             .frame(maxHeight: 80)
+            .padding(.horizontal,5)
     }
 }
 
@@ -80,9 +86,8 @@ struct NavigationLinkButton<Destination: View>: View {
 
     var body: some View {
         NavigationLink(destination: destination) {
-            Image(systemName: "plus")
+            Image(systemName: "cart")
                 .foregroundStyle(Color.primary)
-                .fontWeight(.semibold)
                 .padding(5)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)

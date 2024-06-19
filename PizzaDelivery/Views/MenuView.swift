@@ -39,13 +39,31 @@ struct LoadingView: View {
 
 struct ErrorView: View {
     let errorMessage: String
-    
+
     var body: some View {
-        Text(errorMessage)
-            .foregroundColor(.red)
-            .multilineTextAlignment(.center)
+        VStack(spacing: 10) {
+            Image(systemName: "exclamationmark.triangle")
+                .foregroundColor(.red)
+                .font(.largeTitle)
+            Text("Oops! Something went wrong.")
+                .font(.headline)
+                .foregroundColor(.red)
+            Text(errorMessage)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+            Text("Please check your internet connection or try again later.")
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .font(.subheadline)
+        }
+        .padding()
+        .background(Color.red.opacity(0.1))
+        .cornerRadius(10)
+        .padding(.horizontal, 20)
     }
 }
+
+
 
 struct MenuContentView: View {
     let viewModel: MenuViewModel
@@ -54,6 +72,7 @@ struct MenuContentView: View {
     var body: some View {
         VStack {
             MenuSectionsScrollView(menuSections: viewModel.menuSections, proxy: proxy)
+                .shadow(radius: 5)
             MenuSectionsContent(menuSections: viewModel.menuSections)
             BackToTopButton(proxy: proxy)
         }
@@ -108,7 +127,7 @@ struct MenuSectionsContent: View {
                     .padding(.horizontal)
                     .id(index)
 
-                LazyVGrid(columns: [GridItem(), GridItem()], spacing: 10) {
+                LazyVGrid(columns: [GridItem(), GridItem()], spacing: 15) {
                     ForEach(section.products) { pizza in
                         PizzaView(pizza: pizza)
                     }
@@ -145,8 +164,6 @@ struct BackToTopButton: View {
     }
 }
 
-
 #Preview {
     MenuView(menuViewModel: MenuViewModel())
-        
 }
