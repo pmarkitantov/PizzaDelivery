@@ -139,7 +139,7 @@ struct PizzaDetailView: View {
     }
 
     private func priceForSize() -> Double {
-        size == .medium ? pizza.priceMedium : pizza.priceLarge
+        size == .medium ? pizza.priceMedium * Double(count) : pizza.priceLarge * Double(count)
     }
 
     private var backButton: some View {
@@ -147,7 +147,7 @@ struct PizzaDetailView: View {
             dismiss()
         }
         label: {
-            Image(systemName: "chevron.down")
+            Image(systemName: "chevron.left")
                 .font(.headline)
                 .padding(16)
                 .foregroundStyle(.red)

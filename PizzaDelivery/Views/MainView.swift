@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
+    @EnvironmentObject var menuViewModel: MenuViewModel
 
     var body: some View {
         TabView {
-            MenuView()
+            MenuView(menuViewModel: menuViewModel)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
@@ -29,4 +30,5 @@ struct MainView: View {
 #Preview {
     MainView()
         .environmentObject(CartViewModel())
+        .environmentObject(MenuViewModel())
 }

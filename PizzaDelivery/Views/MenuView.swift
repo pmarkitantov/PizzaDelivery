@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct MenuView: View {
-    @StateObject private var viewModel = MenuViewModel()
+    @ObservedObject var menuViewModel: MenuViewModel
 
     var body: some View {
         NavigationStack {
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack {
-                        if viewModel.isLoading {
+                        if menuViewModel.isLoading {
                             LoadingView()
-                        } else if let errorMessage = viewModel.errorMessage {
+                        } else if let errorMessage = menuViewModel.errorMessage {
                             ErrorView(errorMessage: errorMessage)
                         } else {
-                            MenuContentView(viewModel: viewModel, proxy: proxy)
+                            MenuContentView(viewModel: menuViewModel, proxy: proxy)
                         }
                     }
                     .padding(.horizontal)
@@ -134,7 +134,7 @@ struct BackToTopButton: View {
             .foregroundStyle(Color.primary)
             .fontWeight(.semibold)
             .padding(10)
-            .background(Color("textColor"))
+            .background(Color("subviewBackground"))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
@@ -147,5 +147,6 @@ struct BackToTopButton: View {
 
 
 #Preview {
-    MenuView()
+    MenuView(menuViewModel: MenuViewModel())
+        
 }
