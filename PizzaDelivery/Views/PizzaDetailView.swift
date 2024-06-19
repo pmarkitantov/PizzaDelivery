@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct PizzaDetailView: View {
-    var pizza: Pizza
+    var pizza: Product
+    @Environment(\.dismiss) var dismiss
     @State private var size: PizzaSize = .medium
     @State private var count = 1
     @EnvironmentObject var cartViewModel: CartViewModel
+    @State private var buttonLabel = "Add to Cart"
 
     var body: some View {
         NavigationStack {
@@ -28,7 +30,10 @@ struct PizzaDetailView: View {
                 .onChange(of: size) { _ in count = 1 }
                 .padding()
             }
-            .navigationBarBackButtonHidden(false)
+            .overlay(alignment: .topLeading) {
+                backButton
+            }
+            .navigationBarBackButtonHidden()
         }
     }
 
@@ -110,31 +115,51 @@ struct PizzaDetailView: View {
     private var addToCartButton: some View {
         Button {
             withAnimation {
-                cartViewModel.addPizza(pizza, amount: count, size: size)
+                cartViewModel.addProduct(pizza, amount: count, size: size)
+                buttonLabel = "Added!"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation {
+                        buttonLabel = "Add to Cart"
+                    }
+                }
             }
         } label: {
-            Text("Add to Cart")
+            Text(buttonLabel)
                 .font(.title)
                 .fontDesign(.rounded)
-                .foregroundStyle(Color.primary)
+                .foregroundStyle(buttonLabel == "Added!" ? Color.green : Color.primary)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 50)
                 .padding(.vertical, 10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.primary, lineWidth: 3)
+                        .stroke(buttonLabel == "Added!" ? Color.green : Color.primary, lineWidth: 3)
                 }
-                .padding()
-                .scaleEffect(1.1)
         }
     }
 
     private func priceForSize() -> Double {
         size == .medium ? pizza.priceMedium : pizza.priceLarge
     }
+
+    private var backButton: some View {
+        Button {
+            dismiss()
+        }
+        label: {
+            Image(systemName: "chevron.down")
+                .font(.headline)
+                .padding(16)
+                .foregroundStyle(.red)
+                .background(.thickMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(radius: 4)
+                .padding()
+        }
+    }
 }
 
 #Preview {
-    PizzaDetailView(pizza: Pizza(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
+    PizzaDetailView(pizza: Product(name: "Маргарита", imageName: "bbq", description: "Тесто, сыр. соус", priceMedium: 12.99, priceLarge: 15.99))
         .environmentObject(CartViewModel())
 }

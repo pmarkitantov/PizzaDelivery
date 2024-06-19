@@ -8,26 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @EnvironmentObject var cartViewModel: CartViewModel
-    
+
     var body: some View {
         TabView {
-            NavigationView {
-                MenuView()
-                    .navigationBarTitle("Find your best pizza!")
-            }
-            .tabItem {
-                Label("Menu", systemImage: "list.dash")
-            }
+            MenuView()
+                .tabItem {
+                    Label("Menu", systemImage: "list.dash")
+                }
 
-            NavigationView {
-                CartView(cartViewModel: cartViewModel)
-                    .navigationBarTitle("Cart")
-            }
-            .tabItem {
-                Label("Cart", systemImage: "cart")
-            }
+            CartView(cartViewModel: cartViewModel)
+                .tabItem {
+                    Label("Cart", systemImage: "cart")
+                }
         }
         .tint(.primary)
     }

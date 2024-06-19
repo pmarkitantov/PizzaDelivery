@@ -1,0 +1,111 @@
+[
+  {
+    "title": "Pizza",
+    "imageName": "pizza_section",
+    "products": [
+      {
+        "name": "Margherita",
+        "imageName": "margherita",
+        "description": "Classic tomato sauce, mozzarella cheese, and fresh basil",
+        "priceMedium": 12.99,
+        "priceLarge": 15.99
+      },
+      {
+        "name": "Cheese",
+        "imageName": "cheese",
+        "description": "Classic tomato sauce, mozzarella cheese, cheddar, and parmesan cheeses",
+        "priceMedium": 14.99,
+        "priceLarge": 17.99
+      },
+      {
+        "name": "BBQ",
+        "imageName": "bbq",
+        "description": "BBQ sauce, grilled chicken, bacon, onions, and mozzarella cheese",
+        "priceMedium": 15.99,
+        "priceLarge": 18.99
+      },
+      {
+        "name": "Phila",
+        "imageName": "phila",
+        "description": "Creamy white sauce, sliced steak, onions, green peppers, and mushrooms",
+        "priceMedium": 15.99,
+        "priceLarge": 18.99
+      },
+      {
+        "name": "Hawaiian",
+        "imageName": "hawaii",
+        "description": "Tomato sauce, mozzarella cheese, ham, and pineapple",
+        "priceMedium": 15.99,
+        "priceLarge": 18.99
+      },
+      {
+        "name": "Pepperoni",
+        "imageName": "pepperoni",
+        "description": "Tomato sauce, mozzarella cheese, and extra pepperoni",
+        "priceMedium": 15.99,
+        "priceLarge": 18.99
+      }
+    ]
+  },
+  {
+    "title": "Hotdogs",
+    "imageName": "hotdog_section",
+    "products": [
+      {
+        "name": "Classic Hotdog",
+        "imageName": "hotdog",
+        "description": "Hotdog with ketchup and mustard",
+        "priceMedium": 3.99,
+        "priceLarge": 5.99
+      },
+      {
+        "name": "Chili Hotdog",
+        "imageName": "chili",
+        "description": "Hotdog with chili and cheese",
+        "priceMedium": 4.99,
+        "priceLarge": 6.99
+      }
+    ]
+  },
+  {
+    "title": "Drinks",
+    "imageName": "drinks_section",
+    "products": [
+      {
+        "name": "Coca-Cola",
+        "imageName": "cola",
+        "description": "Refreshing soda drink",
+        "priceMedium": 1.99,
+        "priceLarge": 2.99
+      },
+      {
+        "name": "Orange Juice",
+        "imageName": "juice",
+        "description": "Freshly squeezed orange juice",
+        "priceMedium": 2.99,
+        "priceLarge": 4.99
+      }
+    ]
+  },
+  {
+    "title": "Desserts",
+    "imageName": "desserts_section",
+    "products": [
+      {
+        "name": "Chocolate Cake",
+        "imageName": "cake",
+        "description": "Rich and moist chocolate cake",
+        "priceMedium": 4.99,
+        "priceLarge": 6.99
+      },
+      {
+        "name": "Ice Cream Sundae",
+        "imageName": "ice-cream",
+        "description": "Ice cream with chocolate syrup and nuts",
+        "priceMedium": 3.99,
+        "priceLarge": 5.99
+      }
+    ]
+  }
+]
+

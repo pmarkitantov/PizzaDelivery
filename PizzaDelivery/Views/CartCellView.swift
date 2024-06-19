@@ -44,7 +44,7 @@ struct CartCellView: View {
                 .font(.title3)
 
             Button {
-                cartViewModel.removePizza(cartItem.name, size: cartItem.size)
+                cartViewModel.removeProduct(cartItem.name, size: cartItem.size)
             } label: {
                 Image(systemName: "minus.circle")
                     .foregroundStyle(.red)
